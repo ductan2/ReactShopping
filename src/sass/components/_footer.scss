@@ -1,0 +1,24 @@
+.footer{
+   padding: 60px 0;
+   box-shadow: $box-shadow;
+   font-size: 1.1rem;
+   &__title{
+      text-transform: uppercase;
+      font-weight: 600;
+      font-size: 1.5rem;
+      margin-bottom: 1.2rem;
+   }
+   &__content{
+     p{
+         padding: 8px 0;
+     } 
+   }
+   &__about{
+      img{
+         height: 38px;
+      }
+      p{
+         margin-block: 1.25rem;
+      }
+   }
+}
