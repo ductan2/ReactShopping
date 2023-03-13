@@ -15,6 +15,7 @@ export const Header = () => {
     const isActive = mainNav.findIndex((item) => item.path === pathname);
     const headerRef = useRef(null);
     const leftRef = useRef(null);
+
     const menuToggle = () => {
         leftRef.current.classList.toggle('active');
     };
@@ -35,7 +36,21 @@ export const Header = () => {
             window.removeEventListener('scroll', () => {});
         };
     }, []);
-
+    useEffect(() => {
+      
+        let handler = (e) => {
+            if (
+                !leftRef.current.contains(e.target) &&
+                leftRef.current.classList.contains('active')
+            ) {
+                leftRef.current.classList.remove('active');
+            }
+        };
+        window.addEventListener('mousedown', handler);
+        return () => {
+            window.removeEventListener('mousedown', handler);
+        };
+    }, []);
     return (
         <div className="header" ref={headerRef}>
             <div className="container">
